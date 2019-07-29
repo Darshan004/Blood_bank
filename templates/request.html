@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<style>
+ a:link {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: white;
+  background-color: transparent;
+  text-decoration: underline;
+}
+.footer {
+   margin: auto;
+  width: 50%;
+  padding: 20px;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: gray;
+   color: white;
+   text-align: center;
+}
+</style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Bank of Blood</title>
+  </head>
+  <body>
+    <img src="/media/blood.jpg" style="height: 70px;width:70px;" align="left">
+
+    <strong style="font-size: 50px">Bank of Blood</strong>
+       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{{Search.html}}">bankofblood.com</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item active">
+                   <a class="nav-link" href="{{search.html}}">Search Donors</a>
+                </li>
+
+                <li class="nav-item active">
+                   <a class="nav-link" href="{% url 'register' %}">Register Now</a>
+                </li>
+
+
+                <li class="nav-item active">
+                   <a class="nav-link" href="{% url 'request' %}">Request</a>
+                </li>
+
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'about' %}">About us</a>
+                </li>
+
+
+                <li class="nav-item active">
+                   <a class="nav-link" href="{% url 'contact' %}">Contact us</a>
+                </li>
+
+            </ul>
+      </div>
+    </nav>
+    <form action="requ" method="post" style="margin: 20px">
+	
+	{% csrf_token %}
+
+    	<div class="jumbotron" style="color: white; background-color: tomato;margin-top: 30px">
+    		<h3 >Request Blood</h3>
+    		<div class="form-row">
+    			<div class="col-md-4 mb-3">
+      				<label >Patient Name</label>
+   					<input type="text" class="form-control" name="name" required>
+ 		   		</div>
+
+ 		   		<div class=" col-mb-6" style="width: 350px">
+      					<label for="inputPassword4">Blood Group</label>
+      					<select class="custom-select" style="width: 300px;height: 40px;margin-right: 10px" name="blood_group">
+ 	 						<option selected>select</option>
+	 					    	<option value="A+">A+</option>
+			               		<option value="B+">B+</option>
+					            <option value="A-">A-</option>
+	            				<option value="B-">B-</option>
+        		    			<option value="O+">O+</option>
+				             	<option value="O-">O-</option>
+	                			<option value="AB+">AB+</option>
+		   		                <option value="AB-">AB-</option>
+						</select>
+   				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-md-4 mb-3">
+      				<label >Hospital Name</label>
+   					<input type="text" class="form-control" name="hospital"  required>
+ 		   		</div>
+ 		   		<div class=" col-mb-6" style="width: 350px">
+      					<label >City</label><br>		
+      					<select class="custom-select" style="margin-right: 10px; width: 300px;height: 40px;" name="city">
+	  						<option selected>select</option>
+	   					    	<option value="MALEGAON">MALEGAON</option>
+	   				            <option value="NASHIK">NASHIK</option>
+		  		            	<option value="JALGAON">JALGAON</option>
+	  			            	<option value="NAGAR">NAGAR</option>
+					        	<option value="KANOHA">KANOHA</option>>
+						</select>
+   				</div>
+			</div>
+			<div class="col-md-4 mb-3">
+      				<label >Mobile No.</label>
+      				<input type="tel" class="form-control" name="mob_no" required>
+ 		   	</div>
+    
+        <div class="form-check" style="margin-top:10px;">
+                  <input class="form-check-input" type="checkbox" id="myCheck" name="demo" Required>
+                  <label class="form-check-label" for="demo">
+  	                <p style="color: white">I have read and agree to abide by the <a href="http://127.0.0.1:8000/terms">
+                    terms and conditions</a></p>    
+            	    </label>
+	          </div>
+    	  </div>
+      
+
+    	
+	<!-- Button trigger modal -->
+
+<button style="height:40px; width: 100px;margin-left: 30px ;margin-bottom: 30px;"  onclick="myFunction()"
+ type="submit" class="btn btn-dark" value="Request" data-toggle="modal" data-target="#exampleModal">
+  Request
+</button>
+
+<script>
+function myFunction() {
+  var checkBox = document.getElementById("myCheck");
+  if (checkBox.checked == true){
+    alert('Request Sent');
+  } else {
+    alert('Please enter valid details');
+  }
+}
+</script>
+
+
+
+    </form>
+
+
+
+    </div>
+    <!--footer starts here-->
+    <div class="footer">
+  	 <a href="{% url 'search' %}">Search Donors-</a> 	
+  	 <a href="{% url 'register' %}">Register as Donor-</a>
+  	 <a href="{% url 'request' %}">Request Blood-</a>
+     <a href="{% url 'about' %}">About us-</a>
+  	 <a href="{% url 'terms' %}">Terms and Conditions</a>
+  	 <p>Project by the <b>kbtians</b> .No rights researved © 2019</p>
+</div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
