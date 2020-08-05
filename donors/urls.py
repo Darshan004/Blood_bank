@@ -7,4 +7,5 @@ urlpatterns = [
     path('record',views.record,name='record'),
     path('find',views.find,name='find'),
     path('register',views.register,name='register'),
+    path('table',views.donors,name='donors'),
 ]

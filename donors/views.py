@@ -1,5 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import donors
+from donors.tables import donorsTable
+
 # Create your views here.
 def redirec(request):
     return render(request,'search.html')
@@ -32,3 +34,7 @@ def record(request):
     rec.save()
     return redirect(register)
 
+
+def donors(request):
+    donors = donorsTable()
+    return render(request, "tables.html", {'donors': donors})
